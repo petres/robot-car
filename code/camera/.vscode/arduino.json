@@ -1,7 +1,7 @@
 {
-    "port": "COM21",
+    "port": "/dev/ttyACM0",
     "board": "esp32:esp32:esp32",
-    "sketch": "ESP32_CameraServer_AP_20210107.ino",
+    "sketch": "camera.ino",
     "programmer": "AVRISP mkII",
     "configuration": "PSRAM=enabled,PartitionScheme=huge_app,CPUFreq=240,FlashMode=qio,FlashFreq=80,FlashSize=4M,UploadSpeed=921600,DebugLevel=none"
 }
