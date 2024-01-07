@@ -77,7 +77,7 @@ public:
   const uint8_t ObstacleDetection = 20;
 
   String CommandSerialNumber;
-  uint8_t Rocker_CarSpeed = 250;
+  uint8_t Rocker_CarSpeed = 70;
   uint8_t Rocker_temp;
 
 public:
