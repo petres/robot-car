@@ -8,7 +8,7 @@ logging.basicConfig(filename='robot.log', filemode='w', level=logging.DEBUG)
 
 class Robot(object):    
     heartbeat_message = "{Heartbeat}"
-    heartbeat_freq = 1000
+    heartbeat_freq = 3000
     
     com_s = None
     com_t = None
@@ -27,6 +27,7 @@ class Robot(object):
     def connect(self):
         self.stop = False
         self.com_s = socket.socket()
+        self.com_s.settimeout(0.02)
         logging.debug(f'socket connecting to {(self.host, self.port)}')
         self.com_s.connect((self.host, self.port))  # connect to the server
         self.com_t = threading.Thread(target=self._keepAliveAndSendMessages, args=[])
@@ -41,7 +42,7 @@ class Robot(object):
         
     def isAlive(self):
         # print(self.last_heartbeat_time)
-        return time.time_ns() - self.last_heartbeat_time < 2_000_000_000
+        return time.time_ns() - self.last_heartbeat_time < 3_000_000_000
         
     def send(self, m, r = False):
         self.send_q.put(m)
@@ -52,19 +53,23 @@ class Robot(object):
         while not self.stop:
             self._checkHeartbeat()
             
-            message = self.com_s.recv(1024).decode()
-            if message == self.heartbeat_message:
-                logging.debug('received heartbeat')
-            else:
-                logging.info(f'received message: `{message}`')
-                self.got_q.put(message)
+            try:
+                message = self.com_s.recv(1024).decode()
+                if message == self.heartbeat_message:
+                    logging.debug('received heartbeat')
+                else:
+                    logging.info(f'received message: `{message}`')
+                    self.got_q.put(message)
+            except socket.timeout:
+                pass
                 
             try:
                 message = self.send_q.get_nowait()
                 logging.info(f'send message: `{message}`')
                 self.com_s.send(message.encode())
             except queue.Empty:
-                time.sleep(0.01)  # sleep if no items in queue
+                pass
+                # time.sleep(0.10)  # sleep if no items in queue
     
     def _checkHeartbeat(self):
         if time.time_ns() - self.last_heartbeat_time > 1_000_000 * self.heartbeat_freq:

@@ -38,3 +38,5 @@ send_json_command(ser, 8, D1=1, D2=255, D3=255, D4=255)
 
 # Close the serial connection
 ser.close()
+
+

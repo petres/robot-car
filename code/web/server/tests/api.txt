@@ -1,0 +1,90 @@
+MotorControl (N:1): Control motor selection, speed, and direction.
+CarControl_TimeLimit (N:2): Control car direction and speed for a limited time.
+CarControl_NoTimeLimit (N:3): Control car direction and speed with no time limit.
+MotorControl_Speed (N:4): Control motor speed.
+ServoControl (N:5): Control servo selection and angle.
+LightingControl_TimeLimit (N:7): Control lighting sequence and color for a limited time.
+LightingControl_NoTimeLimit (N:8): Control lighting sequence and color with no time limit.
+Rocker_mode (N:102): Control car direction using rocker control mode.
+
+
+
+
+
+
+"N": 102: This sets the Functional_Mode to Rocker_mode.
+"D1": This sets the Rocker_temp variable, which is used to set the Motion_Control. The possible values are:
+1: Forward
+2: Backward
+3: Left
+4: Right
+5: LeftForward
+6: LeftBackward
+7: RightForward
+8: RightBackward
+9: Stop and enter Standby_mode
+
+
+
+
+CMD_MotorControl (N:1): Motor control mode.
+
+D1: Motor selection
+D2: Motor speed
+D3: Motor direction
+CMD_CarControl_TimeLimit (N:2): Car movement direction and speed control in time-limited mode.
+
+D1: Car direction
+D2: Car speed
+T: Time limit
+CMD_CarControl_NoTimeLimit (N:3): Car movement direction and speed control in no time-limited mode.
+
+D1: Car direction
+D2: Car speed
+CMD_MotorControl_Speed (N:4): Control motor speed mode.
+
+D1: Left motor speed
+D2: Right motor speed
+CMD_ServoControl (N:5): Servo motor control.
+
+D1: Servo selection
+D2: Servo angle
+CMD_LightingControl_TimeLimit (N:7): Lighting control in time-limited mode.
+
+D1: Lighting sequence (Left, front, right, back, and center)
+D2: Red color value
+D3: Green color value
+D4: Blue color value
+T: Time limit
+CMD_LightingControl_NoTimeLimit (N:8): Lighting control in no time-limited mode.
+
+D1: Lighting sequence (Left, front, right, back, and center)
+D2: Red color value
+D3: Green color value
+D4: Blue color value
+
+
+
+
+
+
+# servo camera
+{
+  "N": 106,
+  "D1": 3 # rechts
+}
+
+{"N":106,"D1":3}
+
+
+{
+  "N": 106,
+  "D1": 4 # links
+}
+
+# ultraschall 
+{
+    "H":"ultras",
+    "N":21,
+    "D1":2
+}

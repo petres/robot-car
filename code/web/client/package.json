@@ -1,0 +1,39 @@
+{
+  "name": "ortho-vienna",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve --config build/dev.js",
+    "build": "rm -rf dist && webpack --config build/prod.js",
+    "deploy": "npm run build && npm run sync",
+    "sync": "rsync -arv dist/ nymeria:~/orbis/htdocs/"
+  },
+  "author": {
+    "name": "Peter Reschenhofer",
+    "email": "peter.reschenhofer@wifo.ac.at"
+  },
+  "dependencies": {
+    "axios": "^1",
+    "copy-webpack-plugin": "^11",
+    "html-webpack-plugin": "^5",
+    "sass": "^1",
+    "sass-loader": "^13",
+    "vue": "^3",
+    "vue-loader": "^17",
+    "vue-router": "^4",
+    "vuex": "^4",
+    "@babel/core": "^7",
+    "@babel/preset-env": "^7",
+    "babel-loader": "^9",
+    "css-loader": "^6",
+    "postcss": "^8",
+    "postcss-loader": "^7",
+    "postcss-preset-env": "^9",
+    "style-loader": "^3",
+    "tailwindcss": "^3",
+    "webpack": "^5",
+    "webpack-cli": "^5",
+    "webpack-dev-server": "^4"
+  }
+}

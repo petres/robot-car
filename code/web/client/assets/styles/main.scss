@@ -1,0 +1,17 @@
+// @import "custom";
+// @import "~bootstrap/scss/bootstrap";
+
+@font-face {
+    font-family: Montserrat;
+    src: url(Montserrat-VariableFont_wght.ttf);
+}
+
+body, text {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+body {
+    max-width: 1360px;
+    margin: 10px auto 30px;
+    // background-color: #D3D3D3;
+}
