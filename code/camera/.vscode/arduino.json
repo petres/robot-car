@@ -1,5 +1,5 @@
 {
-    "port": "/dev/ttyACM0",
+    "port": "/dev/ttyUSB0",
     "board": "esp32:esp32:esp32",
     "sketch": "camera.ino",
     "programmer": "AVRISP mkII",
