@@ -1,0 +1,353 @@
+dhcps: send_offer>>udp_sendto result 0
+
+
+
+
+
+
+
+[Client connected]
+
+{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{
+  "N": 102,
+  "D1": 7,
+  "D2": 160
+}{
+  "N": 102,
+  "D1": 1,
+  "D2": 250
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{Heartbeat}{Heartbeat}{
+  "N": 102,
+  "D1": 4,
+  "D2": 160
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}�{Heartbeat}{Heartbeat}{
+  "N": 102,
+  "D1": 7,
+  "D2": 145
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{Heartbeat}{Heartbeat}{Heartbeat}{
+  "N": 102,
+  "D1": 4,
+  "D2": 160
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{Heartbeat}{Heartbeat}�{Heartbeat}�{
+  "N": 102,
+  "D1": 3,
+  "D2": 160
+}{Heartbeat}{
+  "N": 102,
+  "D1": 6,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 2,
+  "D2": 250
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{Heartbeat}{
+  "N": 102,
+  "D1": 7,
+  "D2": 160
+}{Heartbeat}�{
+  "N": 102,
+  "D1": 4,
+  "D2": 145
+}{
+  "N": 102,
+  "D1": 8,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 4,
+  "D2": 205
+}{
+  "N": 102,
+  "D1": 6,
+  "D2": 145
+}{Heartbeat}�{
+  "N": 102,
+  "D1": 3,
+  "D2": 145
+}{
+  "N": 102,
+  "D1": 1,
+  "D2": 145
+}{
+  "N": 102,
+  "D1": 7,
+  "D2": 175
+}{Heartbeat}{
+  "N": 102,
+  "D1": 2,
+  "D2": 160
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}�{Heartbeat}{
+  "N": 102,
+  "D1": 7,
+  "D2": 160
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{Heartbeat}{Heartbeat}�{
+  "N": 102,
+  "D1": 6,
+  "D2": 160
+}{
+  "N": 102,
+  "D1": 2,
+  "D2": 205
+}{Heartbeat}{
+  "N": 102,
+  "D1": 6,
+  "D2": 175
+}{
+  "N": 102,
+  "D1": 3,
+  "D2": 220
+}{Heartbeat}�{
+  "N": 102,
+  "D1": 6,
+  "D2": 220
+}{
+  "N": 102,
+  "D1": 2,
+  "D2": 160
+}{
+  "N": 102,
+  "D1": 8,
+  "D2": 175
+}{
+  "N": 102,
+  "D1": 4,
+  "D2": 250
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{Heartbeat}{Heartbeat}{
+  "N": 101,
+  "D1": 2
+}{Heartbeat}�{Heartbeat}{Heartbeat}{
+  "N": 101,
+  "D1": 1
+}{Heartbeat}{
+  "N": 101,
+  "D1": 3
+}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{
+  "N": 102,
+  "D1": 7,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 4,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 8,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 2,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 6,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 3,
+  "D2": 250
+}{
+  "N": 102,
+  "D1": 6,
+  "D2": 250
+}{Heartbeat}{Heartbeat}{
+  "N": 102,
+  "D1": 1,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 7,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 4,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 8,
+  "D2": 250
+}{
+  "N": 102,
+  "D1": 2,
+  "D2": 250
+}{
+  "N": 102,
+  "D1": 6,
+  "D2": 250
+}{Heartbeat}{Heartbeat}{
+  "N": 102,
+  "D1": 3,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 5,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 2,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{Heartbeat}{
+  "N": 102,
+  "D1": 7,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 6,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 3,
+  "D2": 250
+}{
+  "N": 102,
+  "D1": 5,
+  "D2": 250
+}{Heartbeat}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{
+  "N": 102,
+  "D1": 9,
+  "D2": 0
+}{Heartbeat}{
+  "N": 106,
+  "D1": 4
+}{Heartbeat}{
+  "N": 106,
+  "D1": 4
+}{
+  "N": 106,
+  "D1": 4
+}{Heartbeat}{
+  "N": 106,
+  "D1": 4
+}{Heartbeat}{
+  "N": 106,
+  "D1": 4
+}{Heartbeat}{
+  "N": 106,
+  "D1": 4
+}{Heartbeat}{
+  "N": 106,
+  "D1": 3
+}{Heartbeat}{Heartbeat}{Heartbeat}{
+  "N": 106,
+  "D1": 3
+}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{Heartbeat}{
+  "N": 101,
+  "D1": 1
+}{Heartbeat}{
+  "N": 101,
+  "D1": 2
