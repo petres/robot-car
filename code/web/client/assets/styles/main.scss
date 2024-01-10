@@ -1,5 +1,6 @@
-// @import "custom";
-// @import "~bootstrap/scss/bootstrap";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @font-face {
     font-family: Montserrat;
@@ -10,8 +11,23 @@ body, text {
     font-family: 'Montserrat', sans-serif !important;
 }
 
-body {
-    max-width: 1360px;
-    margin: 10px auto 30px;
-    // background-color: #D3D3D3;
+.btn, button {
+    @apply font-bold py-1 px-2 rounded bg-blue-500 text-xs text-white;
+
+    &:disabled {
+        @apply opacity-50 cursor-not-allowed;
+    }
+
+    &:enabled {
+        &:hover {
+            @apply bg-blue-700;
+        }
+    }    
+}
+
+.group {
+    @apply rounded border my-2 px-2 pb-2;
+    .group-title {
+        @apply py-1 text-xs;
+    }
 }

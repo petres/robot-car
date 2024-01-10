@@ -32,23 +32,33 @@ CMD_MotorControl (N:1): Motor control mode.
 D1: Motor selection
 D2: Motor speed
 D3: Motor direction
+
+
 CMD_CarControl_TimeLimit (N:2): Car movement direction and speed control in time-limited mode.
 
 D1: Car direction
 D2: Car speed
 T: Time limit
+
+
 CMD_CarControl_NoTimeLimit (N:3): Car movement direction and speed control in no time-limited mode.
 
 D1: Car direction
 D2: Car speed
+
+
 CMD_MotorControl_Speed (N:4): Control motor speed mode.
 
 D1: Left motor speed
 D2: Right motor speed
+
+
 CMD_ServoControl (N:5): Servo motor control.
 
 D1: Servo selection
 D2: Servo angle
+
+
 CMD_LightingControl_TimeLimit (N:7): Lighting control in time-limited mode.
 
 D1: Lighting sequence (Left, front, right, back, and center)
@@ -56,6 +66,8 @@ D2: Red color value
 D3: Green color value
 D4: Blue color value
 T: Time limit
+
+
 CMD_LightingControl_NoTimeLimit (N:8): Lighting control in no time-limited mode.
 
 D1: Lighting sequence (Left, front, right, back, and center)

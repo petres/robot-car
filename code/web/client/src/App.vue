@@ -1,10 +1,8 @@
 <template>
-    <div v-if="store.getters.initialized">
-        <div class="inner">
-            <router-view v-slot="{ Component }">
-                <component :is="Component" />
-            </router-view>
-        </div>
+    <div class="container mx-full my-2 mx-auto max-w-md" v-if="store.getters.initialized">
+        <router-view v-slot="{ Component }">
+            <component :is="Component" />
+        </router-view>
     </div>
 </template>
 
