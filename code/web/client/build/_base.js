@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader')
+const webpack = require('webpack');
 
 const path = require('path')
 const resolve = (dir) => path.join(__dirname, '..', dir)
@@ -41,5 +42,6 @@ module.exports = {
             // favicon: 'assets/icon.png',
         }),
         new VueLoaderPlugin(),
+        new webpack.DefinePlugin({ __VUE_PROD_DEVTOOLS__: 'false', }),
     ]
 };

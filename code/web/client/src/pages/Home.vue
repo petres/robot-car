@@ -66,7 +66,7 @@ const move_cam_servo_keys = {
 }
 
 const kd = (e) => {
-    console.log(`down ${e.keyCode}`)
+    // console.log(`down ${e.keyCode}`)
     const k = e.keyCode
     if (k in rocker_move_keys && !e.repeat) {
         s(md.rocker_move(rocker_move_keys[k], 100))
@@ -87,24 +87,24 @@ const ku = (e) => {
 const connect = () =>
     axios.get('/api/connect')
         .then(function (response) {
-            console.log(response.data)
+            // console.log(response.data)
             document.getElementById("controls").focus();
         })
 
 const disconnect = () => 
     axios.get('/api/disconnect')
         .then(function (response) {
-            console.log(response.data)
+            // console.log(response.data)
         })
 
 const s = (m) => {
-    console.log(m)
+    // console.log(m)
     if (typeof m !== "string") {
         m = JSON.stringify(m)
     }
     axios.post('/api/send', { 'message': m })
         .then(function (response) {
-            console.log(response.data)
+            // console.log(response.data)
         })
 }
 </script>

@@ -6,7 +6,7 @@ import logging
 
 logger = logging.getLogger('robot')
 logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler('robot.log', mode='w')  
+handler = logging.FileHandler('instance/robot.log', mode='w')  
 handler.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
@@ -75,8 +75,7 @@ class Robot(object):
                 logger.info(f'send message: `{message}`')
                 self.socket.send(message.encode())
             except queue.Empty:
-                # pass
-                time.sleep(0.05)  # sleep if no items in queue
+                time.sleep(0.05) 
     
     def _checkHeartbeat(self):
         if time.time_ns() - self._last_heartbeat_time > 1_000_000 * self.heartbeat_freq:
@@ -95,6 +94,8 @@ class Robot(object):
             else:
                 logger.info(f'received message: `{message}`')
                 self.recv_q.put(message)
+                
+            time.sleep(1) 
 
                 
     # def _keepAliveAndSendMessages(self):

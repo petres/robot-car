@@ -5,6 +5,7 @@ import axios from 'axios';
 // import * as api from '@/shared/api.js'
 
 const store = createStore({
+    devtools: false,
     state: () => ({
         config: null,
         status: null,
