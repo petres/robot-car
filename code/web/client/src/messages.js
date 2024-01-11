@@ -1,6 +1,6 @@
 const move_cam_dir_2_code = {
-    right: 3,
-    left: 4,
+    right: 4,
+    left: 3,
 }
 const move_cam_servo = (dir) => ({
     N: 106,

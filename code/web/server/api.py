@@ -23,7 +23,7 @@ def get_config():
 def get_status():
     return jsonify({
         'is_alive': r.isAlive(),
-        'messages': r.got_q.qsize()
+        'messages': r.recv_q.qsize()
     })
 
 @app.route("/connect")
@@ -54,7 +54,6 @@ def disconnect():
 
 @app.route("/send", methods=['POST'])
 def send():
-    print('send')
     try:
         message = request.json.get('message')
         r.send(message + "\n")
