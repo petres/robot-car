@@ -8,6 +8,7 @@ const resolve = (dir) => path.join(__dirname, '..', dir)
 module.exports = {
     entry: {
         main: './src/main.js',
+        // joystick: './node_modules/html5-joystick/joy.js',
     },
     module: {
         rules: [{
@@ -22,7 +23,7 @@ module.exports = {
         }, {
             test: /\.(png|svg)$/,
             type: 'asset/resource'
-        }
+        }, 
         ]
     },
     resolve: {
