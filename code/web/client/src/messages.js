@@ -7,6 +7,13 @@ const move_cam_servo = (dir) => ({
     D1: move_cam_dir_2_code[dir]
 })
 
+const set_cam_servo = (angle) => ({
+    N: 5,
+    D1: 1,
+    D2: angle
+})
+
+
 
 const get_ultra_value = () => ({
     N: 21,
@@ -34,6 +41,7 @@ const rocker_move = (dir, speed) => ({
 
 export {
     move_cam_servo,
+    set_cam_servo,
     rocker_move,
     get_ultra_value
 }

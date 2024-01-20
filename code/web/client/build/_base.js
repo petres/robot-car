@@ -40,7 +40,7 @@ module.exports = {
         // }),
         new HtmlWebpackPlugin({
             template: 'index.html',
-            // favicon: 'assets/icon.png',
+            favicon: 'assets/icon.png',
         }),
         new VueLoaderPlugin(),
         new webpack.DefinePlugin({ __VUE_PROD_DEVTOOLS__: 'false', }),

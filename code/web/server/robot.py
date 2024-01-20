@@ -16,7 +16,7 @@ logger.addHandler(handler)
 
 class Robot(object):    
     heartbeat_message = "{Heartbeat}"
-    heartbeat_freq = 3000
+    heartbeat_freq = 1000
     
     socket = None
     
@@ -69,13 +69,12 @@ class Robot(object):
     def _send(self):
         while not self.stop:
             self._checkHeartbeat()
-                
             try:
                 message = self.send_q.get_nowait()
                 logger.info(f'send message: `{message}`')
                 self.socket.send(message.encode())
             except queue.Empty:
-                time.sleep(0.05) 
+                time.sleep(0.02) 
     
     def _checkHeartbeat(self):
         if time.time_ns() - self._last_heartbeat_time > 1_000_000 * self.heartbeat_freq:
@@ -94,8 +93,8 @@ class Robot(object):
             else:
                 logger.info(f'received message: `{message}`')
                 self.recv_q.put(message)
-                
-            time.sleep(1) 
+            
+            time.sleep(0.02)
 
                 
     # def _keepAliveAndSendMessages(self):

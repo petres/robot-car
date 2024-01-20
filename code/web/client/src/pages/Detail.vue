@@ -1,46 +1,50 @@
 <template>
-    <div class="group text-xs">
-        <div class="my-2">
-            <button class="mr-2" @click="connect" :disabled="store.getters.connected">Connect</button>
-            <button @click="disconnect" :disabled="!store.getters.connected">Disconnect</button>
-        </div>
-        {{ store.state.status }}
-    </div>
-    <div class="text-right">
-        <div>
-            <img id="video" class="w-full min-h-80" :src="store.getters.stream" autoplay="autoplay" />
-        </div>
-        <div>
-            <a class="text-xs" :href="store.getters.stream" target="_blank">{{ store.getters.stream }}</a>
-        </div>
-    </div>
-    <div id="controls" @keyup="ku" @keydown="kd" tabindex="0">
-        <div>
-        <!-- <div v-if="store.getters.connected"> -->
-            <div class="group">
-                <div class="group-title">Move:</div>
-                <joystick-control class="mx-auto" @status="joystick"></joystick-control>
-                <div class="buttons">
-                    <button @click="s(md.rocker_move('forward', speed))" class="mr-2 text-base">↑</button>
-                    <button @click="s(md.rocker_move('backward', speed))" class="mr-2 text-base">↓</button>
-                    <button @click="s(md.rocker_move('left', speed))" class="mr-2 text-base">←</button>
-                    <button @click="s(md.rocker_move('right', speed))" class="mr-2 text-base">→</button>
-                    <button @click="s(md.rocker_move('stop', 0))" class="mr-2 text-base">⏹</button>
-                    <input v-model="speed" type="range" :min=0 max=300 value=70 class="slider" />
-                </div>
-                <!-- <div>
-                    <div id="joystick" class="mx-auto" style="height: 200px; width: 200px;"/>
-                </div> -->
+    <div class="container mx-full my-2 mx-auto max-w-md">
+        <div class="group text-xs">
+            <div class="my-2">
+                <button class="mr-2" @click="r.connect" :disabled="store.getters.connected">Connect</button>
+                <button @click="r.disconnect" :disabled="!store.getters.connected">Disconnect</button>
             </div>
-            <div class="group">
-                <div class="group-title">Servo:</div>
-                <button @click="s(md.move_cam_servo('left'))" class="mr-2 text-base">←</button>
-                <button @click="s(md.move_cam_servo('right'))" class="text-base">→</button>
+            {{ store.state.status }}
+        </div>
+        <div class="text-right">
+            <div>
+                <img id="video" class="w-full min-h-80" :src="store.getters.stream" autoplay="autoplay" />
+            </div>
+            <div>
+                <a class="text-xs" :href="store.getters.stream" target="_blank">{{ store.getters.stream }}</a>
+            </div>
+        </div>
+        <div>
+            <div id="controls" @keyup="ku" @keydown="kd" tabindex="0">
+            <!-- <div v-if="store.getters.connected"> -->
+                <div class="group">
+                    <div class="group-title">Move:</div>
+                    <joystick-control class="mx-auto m-4 bg-black p-2" @status="joystick"/>
+                    <div class="buttons">
+                        <button @click="r.send(md.rocker_move('forward', speed))" class="mr-2 text-base">↑</button>
+                        <button @click="r.send(md.rocker_move('backward', speed))" class="mr-2 text-base">↓</button>
+                        <button @click="r.send(md.rocker_move('left', speed))" class="mr-2 text-base">←</button>
+                        <button @click="r.send(md.rocker_move('right', speed))" class="mr-2 text-base">→</button>
+                        <button @click="r.send(md.rocker_move('stop', 0))" class="mr-2 text-base">⏹</button>
+                        <input v-model="speed" type="range" :min=0 max=250 value=70 class="slider" />
+                    </div>
+                    <!-- <div>
+                        <div id="joystick" class="mx-auto" style="height: 200px; width: 200px;"/>
+                    </div> -->
+                </div>
+                <div class="group">
+                    <div class="group-title">Servo:</div>
+                    <button @click="r.send(md.move_cam_servo('left'))" class="mr-2 text-base">←</button>
+                    <button @click="r.send(md.set_cam_servo(90))" class="mr-2 text-base">|</button>
+                    <button @click="r.send(md.move_cam_servo('right'))" class="text-base">→</button>
+                </div>
+
             </div>
             <div class="group">
                 <div class="group-title">Direct message:</div>
                 <textarea v-model="message" class="p-1 w-full borrder text-xs rounded border border-slate-800 border-solid min-h-20"></textarea>
-                <button @click="s(message)">Send</button>
+                <button @click="(message)">Send</button>
             </div>
         </div>
     </div>
@@ -51,10 +55,10 @@ import { ref, onMounted, computed, onUnmounted } from 'vue';
 // import { useRouter, useRoute } from 'vue-router'
 
 import { useStore } from 'vuex'
-import axios from 'axios';
 import JoystickControl from '../JoystickControl.vue';
 
 import * as md from '../messages.js';
+import * as r from '../robot.js';
 
 const store = useStore()
 const message = ref(`{
@@ -99,26 +103,22 @@ const joystick = (status) => {
             // console.log({
             //     speed, dir
             // })
-            s(md.rocker_move(dir, Math.round(speed)));
+            r.send(md.rocker_move(dir, Math.round(speed)));
             lastSentJoystickEvent = n;
         }
-
-
     } else {
-        s(md.rocker_move("stop", 0));
+        r.send(md.rocker_move("stop", 0));
     }
-
-
 } 
 
 const kd = (e) => {
     // console.log(`down ${e.keyCode}`)
     const k = e.keyCode
     if (k in rocker_move_keys && !e.repeat) {
-        s(md.rocker_move(rocker_move_keys[k], +speed.value))
+        r.send(md.rocker_move(rocker_move_keys[k], +speed.value))
     }
     if (k in move_cam_servo_keys && !e.repeat) {
-        s(md.move_cam_servo(move_cam_servo_keys[k]))
+        r.send(md.move_cam_servo(move_cam_servo_keys[k]))
     }
 }
 
@@ -126,31 +126,8 @@ const ku = (e) => {
     //console.log(`up ${e.keyCode}`)
     const k = e.keyCode
     if (k in rocker_move_keys && !e.repeat) {
-        s(md.rocker_move('stop', 0))
+        r.send(md.rocker_move('stop', 0))
     }
 }
 
-const connect = () =>
-    axios.get('/api/connect')
-        .then(function (response) {
-            // console.log(response.data)
-            document.getElementById("controls").focus();
-        })
-
-const disconnect = () => 
-    axios.get('/api/disconnect')
-        .then(function (response) {
-            // console.log(response.data)
-        })
-
-const s = (m) => {
-    console.log(m)
-    if (typeof m !== "string") {
-        m = JSON.stringify(m)
-    }
-    axios.post('/api/send', { 'message': m })
-        .then(function (response) {
-            // console.log(response.data)
-        })
-}
 </script>

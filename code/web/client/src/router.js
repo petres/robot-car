@@ -10,21 +10,11 @@ const router = createRouter({
     routes: [
         {
             name: 'detail',
-            component: Detail, 
-            // path: '/:layer?/:zoom?/:lat?/:lng?', 
-            // props: route => ({
-            //     layer: route.params.layer,
-            //     zoom: parseInt(route.params.zoom),
-            //     lng: +route.params.lng,
-            //     lat: +route.params.lat,
-            // })
-        },
-        {
-            name: 'detail',
+            path: '/detail',
             component: Detail,
         },
         {
-            name: 'full',
+            name: 'full', 
             component: Full,
         },
         // { path: '/file/:id', component: File, props: true, name: 'file'},   
