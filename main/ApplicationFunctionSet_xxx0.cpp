@@ -1983,7 +1983,7 @@ void ApplicationFunctionSet::ApplicationFunctionSet_SerialPortDataAnalysis(void)
       case 102: /*<Command：N 102> :Rocker control mode command*/
         Application_SmartRobotCarxxx0.Functional_Mode = Rocker_mode;
         Rocker_temp = doc["D1"];
-        // Rocker_CarSpeed = doc["D2"];
+        Rocker_CarSpeed = doc["D2"];
         
         switch (Rocker_temp)
         {

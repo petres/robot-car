@@ -34,6 +34,7 @@ void SocketServer_Test(void)
     bool data_begin = true;
     while (client.connected()) //如果客户端处于连接状态
     {
+      // Serial.println(client.remoteIP());
       if (client.available()) //如果有可读数据
       {
         char c = client.read();             //读取一个字节
@@ -94,17 +95,17 @@ void SocketServer_Test(void)
         }
         Heartbeat_time = millis();
       }
-      static unsigned long Test_time = 0;
-      if (millis() - Test_time > 1000) //定时检测连接设备
-      {
-        Test_time = millis();
-        //Serial2.println(WiFi.softAPgetStationNum());
-        if (0 == (WiFi.softAPgetStationNum())) //如果连接的设备个数为“0” 则向车模发送停止命令
-        {
-          Serial2.print("{\"N\":100}");
-          break;
-        }
-      }
+      // static unsigned long Test_time = 0;
+      // if (millis() - Test_time > 1000) //定时检测连接设备
+      // {
+      //   Test_time = millis();
+      //   //Serial2.println(WiFi.softAPgetStationNum());
+      //   if (0 == (WiFi.softAPgetStationNum())) //如果连接的设备个数为“0” 则向车模发送停止命令
+      //   {
+      //     Serial2.print("{\"N\":100}");
+      //     break;
+      //   }
+      // }
     }
     Serial2.print("{\"N\":100}");
     client.stop(); //结束当前连接:

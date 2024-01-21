@@ -123,8 +123,19 @@ void CameraWebServer_AP::CameraWebServer_AP_Init(void)
   wifi_name = mac0_default + mac1_default;
 
   WiFi.setTxPower(WIFI_POWER_19_5dBm);
-  WiFi.mode(WIFI_AP);
-  WiFi.softAP(mac_default, password, 9);
+
+  WiFi.mode(WIFI_STA);
+  WiFi.begin("funkfeuer", "1234567890");
+  Serial.print("Connecting to WiFi ..");
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print('.');
+    delay(1000);
+  }
+  Serial.println(WiFi.localIP());
+
+  // WiFi.mode(WIFI_AP);
+  // WiFi.softAP(mac_default, password, 9);
+  
   startCameraServer();
 
   Serial.print("Camera Ready! Use 'http://");
