@@ -9,7 +9,8 @@
         </div>
         <div class="text-right">
             <div>
-                <img id="video" class="w-full min-h-80" :src="store.getters.stream" autoplay="autoplay" />
+                <!-- <img id="video" class="w-full min-h-80" :src="store.getters.stream" autoplay="autoplay" /> -->
+                <img id="video" class="w-full min-h-80" src="/api/stream" autoplay="autoplay" />
             </div>
             <div>
                 <a class="text-xs" :href="store.getters.stream" target="_blank">{{ store.getters.stream }}</a>

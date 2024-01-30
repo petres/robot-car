@@ -2,7 +2,8 @@
     <div style="background-color: black;" @keyup="ku" @keydown="kd" tabindex="0">
         <div class="flex h-screen">
             <div class="m-auto">
-                <img id="video" class="max-w-screen max-h-screen m-auto" :src="store.getters.stream" autoplay="autoplay"/>
+                <!-- <img id="video" class="max-w-screen max-h-screen m-auto" style="transform: rotate(180deg);" :src="store.getters.stream" autoplay="autoplay"/> -->
+                <img id="video" class="max-w-screen max-h-screen m-auto" style="transform: rotate(180deg);" src="/api/stream" autoplay="autoplay"/>
             </div>
         </div>
         <joystick-control @status="joystick" style="position: fixed; bottom: 10px; right: 10px"/>
@@ -25,7 +26,8 @@ const store = useStore()
 
 import JoystickControl from '../JoystickControl.vue';
 
-const speed = ref(120)
+const speed = ref(80)
+const maxSpeed = 150
 
 const rocker_move_keys = {
     38: 'forward',
@@ -65,7 +67,7 @@ const joystick = (status) => {
         const n = Date.now();
         if ((n - lastSentJoystickEvent > 80)) {
             const pos = status.pos
-            const speed = pos.l * 250;
+            const speed = pos.l * maxSpeed;
             const angle = Math.atan2(pos.x, -pos.y);
 
             const fb = Math.abs(angle) < Math.PI/2 ? "forward" : "backward";

@@ -32,7 +32,7 @@
 import { ref, computed, onMounted } from "vue";
 
 const opts = ref({
-    innerSize: 30,
+    innerSize: 40,
     outerSize: 250,
 })
 

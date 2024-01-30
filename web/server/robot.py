@@ -7,7 +7,7 @@ import logging
 logger = logging.getLogger('robot')
 logger.setLevel(logging.DEBUG)
 handler = logging.FileHandler('instance/robot.log', mode='w')  
-handler.setLevel(logging.DEBUG)
+handler.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
@@ -59,7 +59,7 @@ class Robot(object):
         
     def isAlive(self):
         # print(self._last_heartbeat_time)
-        return time.time_ns() - self._last_heartbeat_time < 4_000_000_000
+        return time.time_ns() - self._last_heartbeat_time < 2_000_000_000
         
     def send(self, m, r = False):
         self.send_q.put(m)

@@ -1,0 +1,13 @@
+{
+    "deploy": {
+        "host": "peter@zeros.home",
+        "client": {
+            "path": "/home/peter/robot-car/client",
+            "service": "nginx"
+        },
+        "server": {
+            "path": "/home/peter/robot-car/server",
+            "service": "robot-car-api-server"
+        }
+    }
+}

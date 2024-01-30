@@ -1,0 +1,16 @@
+[Unit]
+Description=API Server
+After=network.target
+
+[Service]
+User=peter
+Group=peter
+WorkingDirectory=/home/peter/server
+ExecStart=/home/peter/server/bin/gunicorn.sh
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=mixed
+TimeoutStopSec=5
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
