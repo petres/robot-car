@@ -13,8 +13,8 @@ echo "${SERVER_HOST}:${SERVER_PATH}"
 echo 'Syncing ...'
 rsync -arv --exclude /instance --exclude '__pycache__/' --exclude '/tests' --exclude '/venv' ./ ${SERVER_HOST}:${SERVER_PATH}
 
-# echo 'Venv ...'
-# ssh ${SERVER_HOST} "${SERVER_PATH}/bin/venv.sh"
+echo 'Venv ...'
+ssh ${SERVER_HOST} "${SERVER_PATH}/bin/venv.sh"
 
 echo 'Restarting api server ...'
-ssh ${SERVER_HOST} "sudo systemctl restart ${SERVER_SERVICE}.service"
+ssh ${SERVER_HOST} "systemctl --user restart ${SERVER_SERVICE}.service"

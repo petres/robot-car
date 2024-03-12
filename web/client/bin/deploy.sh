@@ -12,5 +12,5 @@ echo 'Building ...'
 node_modules/.bin/webpack --config build/prod.js
 echo 'Syncing ...'
 rsync -arv dist/ ${SERVER_HOST}:${SERVER_PATH}
-echo 'Restarting nginx ...'
+echo "Restarting ${SERVER_SERVICE} ..."
 ssh ${SERVER_HOST} "sudo systemctl restart ${SERVER_SERVICE}.service"
