@@ -1,0 +1,15 @@
+<url> {
+	basicauth {
+		<user> <hashed-password>
+	}
+	handle_path /api/* {
+		reverse_proxy localhost:8888
+	}
+	handle {
+		root * /srv/http/petres/robot-car
+		file_server
+	}
+	log {
+		output file /var/log/caddy/robot-car.log
+	}
+}

@@ -21,12 +21,17 @@ class Camera(object):
     stop = False
     boundary = None
     frame = None
+    frame_time = None
     
     def __init__(self, url):
         self.url = url
         self.frame = dummy_jpeg
         
     def connect(self):
+        if self.isStreaming():
+            logger.warning(f'not connecting, already streaming')
+            return
+        
         self.stop = False
         logger.debug(f'connecting to stream `{self.url}`')
         self.stream = requests.get(self.url, stream=True)
@@ -48,9 +53,11 @@ class Camera(object):
         self.recv_t.join()
         logger.debug(f'closing stream')
         self.stream.close()
+        self.frame = dummy_jpeg
         
     def isStreaming(self):
-        return not (self.stream is None or self.stream.raw is None or self.stream.raw.closed)
+        # return not (self.stream is None or self.stream.raw is None or self.stream.raw.closed)
+        return self.frame_time is not None and time.time_ns() - self.frame_time < 2_000_000_000
     
     def get_frame(self):
         return self.frame
@@ -66,6 +73,7 @@ class Camera(object):
                 if b'Content-Type: image/jpeg' in part_data:
                     jpeg_part = part_data.split(b'\r\n\r\n')[1].rstrip(b'\r\n')
                     self.frame = jpeg_part
+                    self.frame_time = time.time_ns()
 
 
 

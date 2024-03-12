@@ -45,7 +45,7 @@
             <div class="group">
                 <div class="group-title">Direct message:</div>
                 <textarea v-model="message" class="p-1 w-full borrder text-xs rounded border border-slate-800 border-solid min-h-20"></textarea>
-                <button @click="(message)">Send</button>
+                <button @click="r.send(message)">Send</button>
             </div>
         </div>
     </div>

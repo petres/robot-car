@@ -13,7 +13,6 @@ with open(os.path.join(app.instance_path, 'config.json')) as f:
         
 r = Robot(config['host'], config['api']['port'])
 c = Camera(f"http://{config['host']}:{config['stream']['port']}/{config['stream']['path']}")
-# c.connect()
 
 @app.route("/")
 def home():
@@ -35,7 +34,10 @@ def get_status():
 def connect():
     try:
         c.connect()
-        r.connect()
+        if not r.isAlive():
+            r.disconnect()
+            r.connect()
+            
         return jsonify({
             'valid': True
         })
@@ -49,6 +51,7 @@ def connect():
 def disconnect():
     try:
         r.disconnect()
+        c.disconnect()
         return jsonify({
             'valid': True
         })
