@@ -12,18 +12,17 @@ module.exports = merge(baseConfig, {
         hot: false,
         port: 8000,
         allowedHosts: "all",
-        proxy: {
-            '/api': {
-                target: {
-                    host: "localhost",
-                    protocol: 'http:',
-                    port: 8888
-                },
-                pathRewrite: {
-                    '^/api': ''
-                }
+        proxy: [{
+            context: ['/api'],
+            target: {
+                host: "localhost",
+                protocol: 'http:',
+                port: 8888
+            },
+            pathRewrite: {
+                '^/api': ''
             }
-        },
+        }],
     },
     devtool: 'source-map',
     output: {

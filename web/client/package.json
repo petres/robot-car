@@ -21,11 +21,12 @@
     "copy-webpack-plugin": "^12",
     "css-loader": "^6",
     "html-webpack-plugin": "^5",
+    "nipplejs": "^0.10.1",
     "postcss": "^8",
-    "postcss-loader": "^7",
+    "postcss-loader": "^8",
     "postcss-preset-env": "^9",
     "sass": "^1",
-    "sass-loader": "^13",
+    "sass-loader": "^14",
     "style-loader": "^3",
     "tailwindcss": "^3",
     "vue": "^3",
@@ -34,6 +35,6 @@
     "vuex": "^4",
     "webpack": "^5",
     "webpack-cli": "^5",
-    "webpack-dev-server": "^4"
+    "webpack-dev-server": "^5"
   }
 }
